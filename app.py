@@ -5,6 +5,7 @@ from sklearn import svm
 import streamlit as st
 
 
+
 # Path del modelo preentrenado
 MODEL_PATH = 'models/pickle_model.pkl'
 
@@ -32,6 +33,7 @@ def main():
     <h1 style="color:#181082;text-align:center;">SISTEMA INTELIGENTE DE RECOMENDACIÓN DE CULTIVOS EN TOLIMA</h1>
     </div>
     """
+   
     st.markdown(html_temp,unsafe_allow_html=True)
 
     # Lecctura de datos
@@ -56,6 +58,8 @@ def main():
                     np.float_(rain.title())]
         predictS = model_prediction(x_in, model)
         st.success('EL CULTIVO RECOMENDADO ES: {}'.format(predictS[0]).upper())
+
+    st.image("clustering.jpg", caption="clustering")
 
     # Botón para cerrar la aplicación
     if st.button("Cerrar aplicación"):
